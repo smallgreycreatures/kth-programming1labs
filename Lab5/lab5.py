@@ -24,9 +24,22 @@ def ladda():
             fil.close()
     return
 
+def kanalval():
+    while True:
+        try:
+            kanalbyte = int(input())
+            if kanalbyte in range(1, len(kanaler)):
+                break
+            print("Fel val, försök igen")
+        except:
+            print("Ange en sifra")
+    return kanalbyte
+
+
 def cls():
+    pass
     #Rensa skärmen
-    print ("\n" * 50)
+    # print ("\n" * 50)
 
 def spara():
     #Sparar kanal och volyminställningar till filen settings.conf
@@ -36,15 +49,15 @@ def spara():
     fil.write("TV2-volume:"+str(tv2.volym)+"\n")
     fil.write("TV2-kanal:"+str(tv2.kanal)+"\n")
     fil.close()
-
     return
+
+
 def meny(menu_level=0, alternativ=3):
     # Innehåller all menyhantering
-
     while True:
         cls()
-        display()
         print("***Välkommen till TV-simulatorn, vi har två TV-apparater som kan användas i simuleringen***")
+        display()
         print("1. VardagsrumsTV")
         print("2. Köks TV")
         print("3. Avsluta")
@@ -69,13 +82,7 @@ def meny(menu_level=0, alternativ=3):
                             print("Välj kanal:")
                             for i in range(1, len(kanaler)):
                                 print(str(i)+". ", kanaler[i], program[i])
-                            while True:
-                                kanalbyte=int(input())
-                                if kanalbyte in range(1, len(kanaler)):
-                                    tv1.bytKanal(kanalbyte)
-                                    break
-                                else:
-                                    print("Fel val, försök igen")
+                            tv1.bytKanal(kanalval())
 
                         elif vmeny == "2":
                             tv1.hojVolym()
@@ -102,14 +109,7 @@ def meny(menu_level=0, alternativ=3):
                             print("Välj kanal:")
                             for i in range(1, len(kanaler)):
                                 print(str(i)+". ", kanaler[i], program[i])
-                            while True:
-                                kanalbyte=int(input())
-                                if kanalbyte in range(1, len(kanaler)):
-                                    tv2.bytKanal(kanalbyte)
-                                    break
-                                else:
-                                    print("Fel val, försök igen")
-
+                            tv2.bytKanal(kanalval())
                         elif vmeny == "2":
                             tv2.hojVolym()
                         elif vmeny == "3":
