@@ -37,9 +37,8 @@ def kanalval():
 
 
 def cls():
-    pass
     #Rensa skärmen
-    # print ("\n" * 50)
+    print ("\n" * 50)
 
 def spara():
     #Sparar kanal och volyminställningar till filen settings.conf
@@ -132,24 +131,28 @@ def display(prompt_message=""):
     print("På vardagsrums-TV:n visas ", kanaler[int(tv1.kanal)], "med programmet:", program[int(tv1.kanal)])
     if tv1.message != 0:
         print(tv1.message)
-        tv1.message == 0
+        tv1.message = 0
     print("På köks-TV:n visas ", kanaler[tv2.kanal], "med programmet:", program[int(tv2.kanal)])
 
     if tv2.message != 0:
         print(tv2.message)
-        tv2.message == 0
+        tv2.message = 0
     return
 
-run=True
+
 tv1=TV()
+
+# Tillämpar grundinställningar, dessa skrivs över av ladda-funktionen om det finns sparade inställningar
 tv1.program=program[1]
 tv1.kanal=1
 tv2=TV()
 tv2.program=program[2]
 tv2.kanal=2
+
 ladda()
+run = True
 while run:
-    run = meny()
+    run=meny()
 
 
 #Updatera inställningsfil
