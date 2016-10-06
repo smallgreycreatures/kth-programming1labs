@@ -7,22 +7,26 @@ kanaler=["", "Tv 1", "Tv 2", "Tv 3", "Tv 4"]
 
 def ladda():
     #Laddar kanal och volyminställningar från settings.conf
-    fil = open("settings.conf", "r")
-    lines = fil.readlines()
-    for line in lines:
-        if line.startswith("TV1-volume:"):
-            tv1.volym=int((line.split(":")[1]))
-            fil.close()
-        if line.startswith("TV1-kanal:"):
-            tv1.kanal=int((line.split(":")[1]))
-            fil.close()
-        if line.startswith("TV2-volume:"):
-            tv2.volym=int((line.split(":")[1]))
-            fil.close()
-        if line.startswith("TV2-kanal:"):
-            tv2.kanal=int((line.split(":")[1]))
-            fil.close()
-    return
+    try:
+        fil = open("settings.conf", "r")
+        lines = fil.readlines()
+        for line in lines:
+            if line.startswith("TV1-volume:"):
+                tv1.volym = int((line.split(":")[1]))
+                fil.close()
+            if line.startswith("TV1-kanal:"):
+                tv1.kanal = int((line.split(":")[1]))
+                fil.close()
+            if line.startswith("TV2-volume:"):
+                tv2.volym = int((line.split(":")[1]))
+                fil.close()
+            if line.startswith("TV2-kanal:"):
+                tv2.kanal = int((line.split(":")[1]))
+                fil.close()
+        return
+
+    except:
+        return
 
 def kanalval():
     while True:
