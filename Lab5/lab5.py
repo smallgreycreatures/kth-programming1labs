@@ -37,8 +37,9 @@ def kanalval():
 
 
 def cls():
-    #Rensa skärmen
-    print ("\n" * 50)
+    #Rensa skärmen, kan användas om man vill, utkommenterad eftersom
+    #print ("\n" * 50)
+    pass
 
 def spara():
     #Sparar kanal och volyminställningar till filen settings.conf
@@ -119,8 +120,8 @@ def meny(menu_level=0, alternativ=3):
 
                 elif int(menyval) == alternativ:
                     return False
-                else:
-                    print("Välj ett alternativ mellan 1 och ", alternativ)
+            else:
+                print("Välj ett alternativ mellan 1 och ", alternativ)
         except ValueError:
             print("Fel val. Försök igen.")
     return False
