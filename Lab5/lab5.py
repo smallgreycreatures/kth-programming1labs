@@ -138,23 +138,18 @@ def display(prompt_message=""):
         print(tv2.message)
         tv2.message = 0
     return
-
-
+# Skapa tv-instanserna
 tv1=TV()
-
-# Tillämpar grundinställningar, dessa skrivs över av ladda-funktionen om det finns sparade inställningar
-tv1.program=program[1]
-tv1.kanal=1
 tv2=TV()
-tv2.program=program[2]
-tv2.kanal=2
-
+#Hämta inställningar
 ladda()
+
 run = True
 while run:
     run=meny()
 
 
-#Updatera inställningsfil
+
 print("Avslutar")
+#Updatera inställningsfil
 spara()

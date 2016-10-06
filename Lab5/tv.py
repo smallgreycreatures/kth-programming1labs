@@ -1,9 +1,9 @@
-class TV:
+class TV(object):
     def __init__(self):
-        self.kanal=0
+        self.kanal=1
         self.volym=4
         self.message=False
-        self.program=0
+        self.program=1
 
     def hojVolym(self):
         if self.volym > 9:
